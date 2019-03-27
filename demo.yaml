@@ -4,4 +4,4 @@ BATCH_SIZE: 1
 GPU_NUM: 1
 
 # directories
-CKPT_DIR: 'SC-FEGAN.ckpt'
+CKPT_DIR: 'FC-FEGAN_ckpt/SC-FEGAN.ckpt'
