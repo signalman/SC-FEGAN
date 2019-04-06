@@ -6,3 +6,5 @@ git clone https://github.com/zaidalyafeai/SC-FEGAN `
 `cat x* > FC-FEGAN_ckpt.zip`
 
 `unzip FC-FEGAN_ckpt.zip`
+
+`python3 demo.py`
