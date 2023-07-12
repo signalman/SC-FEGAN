@@ -1,11 +1,11 @@
 import cv2
 import numpy as np
 import tensorflow as tf
-from tensorflow.contrib.framework.python.ops import add_arg_scope
+# from tensorflow.contrib.framework.python.ops import add_arg_scope
 
 # The gate convolution is made with reference to Deepfillv1(https://github.com/JiahuiYu/generative_inpainting)
 
-@add_arg_scope
+# @add_arg_scope
 def gate_conv(x_in, cnum, ksize, stride=1, rate=1, name='conv',
              padding='SAME', activation='leaky_relu', use_lrn=True,training=True):
     assert padding in ['SYMMETRIC', 'SAME', 'REFELECT']
@@ -28,7 +28,7 @@ def gate_conv(x_in, cnum, ksize, stride=1, rate=1, name='conv',
     x = tf.multiply(x,g)
     return x, g
 
-@add_arg_scope
+# @add_arg_scope
 def gate_deconv(input_, output_shape, k_h=5, k_w=5, d_h=2, d_w=2, stddev=0.02,
        name="deconv", training=True):
     with tf.variable_scope(name):
