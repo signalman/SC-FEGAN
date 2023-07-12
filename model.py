@@ -15,31 +15,16 @@ class Model(object):
 
         self.dtype = tf.float32
 
-        self.images = tf.Variable(
-          initial_value=tf.zeros(
-            shape=[self.batch_size] + image_dims, dtype=self.dtype),
-            trainable=False,
-            name='real_images')
-        self.sketches = tf.Variable(
-          initial_value=tf.zeros(
-            shape=[self.batch_size] + sk_dims, dtype=self.dtype),
-            trainable=False,
-            name='sketches')
-        self.color = tf.Variable(
-          initial_value=tf.zeros(
-            shape=[self.batch_size] + sk_dims, dtype=self.dtype),
-            trainable=False,
-            name='color')
-        self.masks = tf.Variable(
-          initial_value=tf.zeros(
-            shape=[self.batch_size] + sk_dims, dtype=self.dtype),
-            trainable=False,
-            name='masks')
-        self.noises = tf.Variable(
-          initial_value=tf.zeros(
-            shape=[self.batch_size] + sk_dims, dtype=self.dtype),
-            trainable=False,
-            name='noises')
+        self.images = tf.placeholder(
+            self.dtype, [self.batch_size] + image_dims, name='real_images')
+        self.sketches = tf.placeholder(
+            self.dtype, [self.batch_size] + sk_dims, name='sketches')
+        self.color = tf.placeholder(
+            self.dtype, [self.batch_size] + color_dims, name='color')
+        self.masks = tf.placeholder(
+            self.dtype, [self.batch_size] + masks_dims, name='masks')
+        self.noises = tf.placeholder(
+            self.dtype, [self.batch_size] + noises_dims, name='noises')
 
     def build_gen(self, x, mask, name='generator',reuse=False, trainig=True):
         cnum = 64
