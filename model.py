@@ -1,8 +1,8 @@
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 # import tensorflow.contrib.slim.nets as nets
 import numpy as np
 from ops import *
-
+tf.disable_v2_behavior()
 class Model(object):
     def __init__(self, config):
         self.input_size = config.INPUT_SIZE
