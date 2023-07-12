@@ -1,5 +1,5 @@
 import tensorflow as tf
-import tensorflow.contrib.slim.nets as nets
+# import tensorflow.contrib.slim.nets as nets
 import numpy as np
 from ops import *
 
